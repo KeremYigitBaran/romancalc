@@ -1,0 +1,4 @@
+#include "romanmath.h"
+
+#test aTest
+	ck_assert_int_eq( 1, 1 );
