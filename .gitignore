@@ -1,3 +1,8 @@
+romancalc-test
+romancalc
+
+*-test.c
+
 # Object files
 *.o
 *.ko
