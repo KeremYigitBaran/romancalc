@@ -97,7 +97,8 @@ int romanToInt( const char* Roman)
 	int largestSymbolValue = 0;
 	int repeatCount = 0;
 	
-	for (int index = strlen(Roman)-1; index >=0; --index)
+	int index = 0;
+	for (index = strlen(Roman)-1; index >=0; --index)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
 		if (symbolValue == INVALID_ROMAN_NUMERAL)
@@ -200,11 +201,12 @@ char* intToRoman(int Value)
 	const char* symbolsForValues[] = {"M",  "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 	int symbolValueCount = sizeof(symbolValues) / sizeof(symbolValues[0]);
 
-	for (int i = 0; i < symbolValueCount; ++i)
+	int index = 0;
+	for (index = 0; index < symbolValueCount; ++index)
 	{
-		for (;Value >= symbolValues[i]; Value -= symbolValues[i])
+		for (;Value >= symbolValues[index]; Value -= symbolValues[index])
 		{
-			strcat(romanNumeral, symbolsForValues[i]);
+			strcat(romanNumeral, symbolsForValues[index]);
 		}
 	}
 

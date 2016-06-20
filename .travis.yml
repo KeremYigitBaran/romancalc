@@ -5,5 +5,4 @@ os: linux
 compiler: gcc
 
 script:
- - export CXXFLAGS="-std=c99"
  - make && make test
