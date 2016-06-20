@@ -46,5 +46,13 @@
 	ck_assert_str_eq( intToRoman(1), "I");
 	ck_assert_str_eq( intToRoman(2), "II");
 	ck_assert_str_eq( intToRoman(3), "III");
+	ck_assert_str_eq( intToRoman(4), "IV");
+	ck_assert_str_eq( intToRoman(5), "V");
+	ck_assert_str_eq( intToRoman(6), "VI");
+	ck_assert_str_eq( intToRoman(7), "VII");
+	ck_assert_str_eq( intToRoman(8), "VIII");
+	ck_assert_str_eq( intToRoman(9), "IX");
+	ck_assert_str_eq( intToRoman(10), "X");
+	ck_assert_str_eq( intToRoman(11), "XI");
 
 

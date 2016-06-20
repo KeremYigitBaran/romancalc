@@ -163,8 +163,44 @@ char* intToRoman(int Value)
 	{
 		return strdup("II");
 	}
-	else 
+	else if (3 == Value)
 	{
 		return strdup("III");
+	}
+	else if (4 == Value)
+	{
+		return strdup("IV");
+	}
+	else if (5 == Value)
+	{
+		return strdup("V");
+	}
+	else if (6 == Value)
+	{
+		return strdup("VI");
+	}
+	else if (7 == Value)
+	{
+		return strdup("VII");
+	}
+	else if (8 == Value)
+	{
+		return strdup("VIII");
+	}
+	else if (9 == Value)
+	{
+		return strdup("IX");
+	}
+	else if (10 == Value)
+	{
+		return strdup("X");
+	}
+	else if (11 == Value)
+	{
+		return strdup("XI");
+	}
+	else 
+	{
+		return 0;
 	}
 }
