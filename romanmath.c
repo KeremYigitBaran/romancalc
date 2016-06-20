@@ -19,8 +19,28 @@ int romanToInt( const char* Roman)
 	{
 		return 4;
 	}
-	else
+	else if (strcmp(Roman, "V") == 0)
 	{
 		return 5;
+	}
+	else if (strcmp(Roman, "VI") == 0)
+	{
+		return 6;
+	}
+	else if (strcmp(Roman, "VII") == 0)
+	{
+		return 7;
+	}
+	else if (strcmp(Roman, "VIII") == 0)
+	{
+		return 8;
+	}
+	else if (strcmp(Roman, "IX") == 0)
+	{
+		return 9;
+	}
+	else
+	{
+		return 10;
 	}
 }

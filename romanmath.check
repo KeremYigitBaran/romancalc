@@ -9,4 +9,9 @@
 	ck_assert_int_eq( romanToInt("III"), 3);
 	ck_assert_int_eq( romanToInt("IV"), 4);
 	ck_assert_int_eq( romanToInt("V"), 5);
+	ck_assert_int_eq( romanToInt("VI"), 6);
+	ck_assert_int_eq( romanToInt("VII"), 7);
+	ck_assert_int_eq( romanToInt("VIII"), 8);
+	ck_assert_int_eq( romanToInt("IX"), 9);
+	ck_assert_int_eq( romanToInt("X"), 10);
 
