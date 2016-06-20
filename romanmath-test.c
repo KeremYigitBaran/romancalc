@@ -54,8 +54,11 @@ END_TEST
 
 START_TEST(sumRomanNumerals)
 {
-	ck_assert_str_eq( romanSum("I", "I"), "II");
-	ck_assert_str_eq( romanSum("XIV", "LX"), "LXXIV");
+	char* ptr = 0;
+	ck_assert_str_eq( (ptr = romanSum("I", "I")), "II");
+	free(ptr);
+	ck_assert_str_eq( (ptr = romanSum("XIV", "LX")), "LXXIV");
+	free(ptr);
 }
 END_TEST
 

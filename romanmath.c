@@ -66,7 +66,7 @@ int romanAllowedSymbolRepeat(int value)
 	return repeatCountAllowed;
 }
 
-bool isAllowedSubtractiveForValue(possibleSubtractve, symbolValue)
+bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
 {
 	bool isAllowed = false;
 
