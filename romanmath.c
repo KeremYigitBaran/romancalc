@@ -158,12 +158,19 @@ char* intToRoman(int Value)
 	char romanNumeral[64];
 	memset(romanNumeral, 0, 64);
 
+	if (Value >= 40)
+	{
+		strcat(romanNumeral, "XL");
+		Value -= 40;
+
+	}
+
 	for(;Value >= 10; Value -= 10)
 	{
 		strcat(romanNumeral, "X");
 	}
 
-	if (9 == Value)
+	if (Value >= 9)
 	{
 		strcat(romanNumeral, "IX");
 		Value -= 9;
@@ -174,13 +181,13 @@ char* intToRoman(int Value)
 		strcat(romanNumeral, "V");
 	}
 
-	if (4 == Value)
+	if (Value >= 4)
 	{
 		strcat(romanNumeral, "IV");
-		Value -= 9;
+		Value -= 4;
 	}
 
-	for(;Value > 0; Value -= 1)
+	for(;Value >= 1; Value -= 1)
 	{
 		strcat(romanNumeral, "I");
 	}

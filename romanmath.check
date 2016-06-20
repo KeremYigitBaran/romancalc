@@ -54,5 +54,9 @@
 	ck_assert_str_eq( intToRoman(9), "IX");
 	ck_assert_str_eq( intToRoman(10), "X");
 	ck_assert_str_eq( intToRoman(11), "XI");
+	ck_assert_str_eq( intToRoman(21), "XXI");
+	ck_assert_str_eq( intToRoman(31), "XXXI");
+	ck_assert_str_eq( intToRoman(41), "XLI");
+	ck_assert_str_eq( intToRoman(49), "XLIX");
 
 
