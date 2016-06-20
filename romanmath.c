@@ -159,8 +159,12 @@ char* intToRoman(int Value)
 	{
 		return strdup("I");
 	}
-	else
+	else if (2 == Value)
 	{
 		return strdup("II");
+	}
+	else 
+	{
+		return strdup("III");
 	}
 }
