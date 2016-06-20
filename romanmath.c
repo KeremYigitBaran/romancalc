@@ -26,44 +26,22 @@ int romanSymbolToInt( const char RomanSymbol )
 
 int romanToInt( const char* Roman)
 {
-	if (strcmp(Roman, "I") == 0)
+	int value = 0;
+	int previousSymbolValue = 0;
+
+	for (int index = strlen(Roman)-1; index >=0; --index)
 	{
-		return romanSymbolToInt('I');
+		int symbolValue = romanSymbolToInt(Roman[index]);
+		if (symbolValue < previousSymbolValue)
+		{
+			value -= symbolValue;
+		}
+		else
+		{
+			value += symbolValue;
+		}
+		previousSymbolValue = symbolValue;
 	}
-	else if (strcmp(Roman, "II") == 0)
-	{
-		return romanSymbolToInt('I') + romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "III") == 0)
-	{
-		return romanSymbolToInt('I') + romanSymbolToInt('I') + romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "IV") == 0)
-	{
-		return romanSymbolToInt('V') - romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "V") == 0)
-	{
-		return romanSymbolToInt('V');
-	}
-	else if (strcmp(Roman, "VI") == 0)
-	{
-		return romanSymbolToInt('V') + romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "VII") == 0)
-	{
-		return romanSymbolToInt('V') + romanSymbolToInt('I') + romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "VIII") == 0)
-	{
-		return romanSymbolToInt('V') + romanSymbolToInt('I') + romanSymbolToInt('I') + romanSymbolToInt('I');
-	}
-	else if (strcmp(Roman, "IX") == 0)
-	{
-		return romanSymbolToInt('X') - romanSymbolToInt('I');
-	}
-	else
-	{
-		return romanSymbolToInt('X');
-	}
+
+	return value;
 }
