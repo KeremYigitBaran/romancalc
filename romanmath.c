@@ -155,52 +155,36 @@ int romanSumInt(const char* AddendA, const char* AddendB)
 
 char* intToRoman(int Value)
 {
-	if (1 == Value)
+	char romanNumeral[64];
+	memset(romanNumeral, 0, 64);
+
+	for(;Value >= 10; Value -= 10)
 	{
-		return strdup("I");
+		strcat(romanNumeral, "X");
 	}
-	else if (2 == Value)
+
+	if (9 == Value)
 	{
-		return strdup("II");
+		strcat(romanNumeral, "IX");
+		Value -= 9;
 	}
-	else if (3 == Value)
+
+	for(;Value >= 5; Value -= 5)
 	{
-		return strdup("III");
+		strcat(romanNumeral, "V");
 	}
-	else if (4 == Value)
+
+	if (4 == Value)
 	{
-		return strdup("IV");
+		strcat(romanNumeral, "IV");
+		Value -= 9;
 	}
-	else if (5 == Value)
+
+	for(;Value > 0; Value -= 1)
 	{
-		return strdup("V");
+		strcat(romanNumeral, "I");
 	}
-	else if (6 == Value)
-	{
-		return strdup("VI");
-	}
-	else if (7 == Value)
-	{
-		return strdup("VII");
-	}
-	else if (8 == Value)
-	{
-		return strdup("VIII");
-	}
-	else if (9 == Value)
-	{
-		return strdup("IX");
-	}
-	else if (10 == Value)
-	{
-		return strdup("X");
-	}
-	else if (11 == Value)
-	{
-		return strdup("XI");
-	}
-	else 
-	{
-		return 0;
-	}
+
+	return strdup(romanNumeral);
+
 }
