@@ -2,3 +2,7 @@
 
 #test aTest
 	ck_assert_int_eq( 1, 1 );
+
+#test convertSingleDigits
+	ck_assert_int_eq( romanToInt("I"), 1);
+
