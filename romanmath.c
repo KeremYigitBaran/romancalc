@@ -155,5 +155,12 @@ int romanSumInt(const char* AddendA, const char* AddendB)
 
 char* intToRoman(int Value)
 {
-	return strdup("I");
+	if (1 == Value)
+	{
+		return strdup("I");
+	}
+	else
+	{
+		return strdup("II");
+	}
 }

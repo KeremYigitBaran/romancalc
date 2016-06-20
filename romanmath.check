@@ -44,5 +44,6 @@
 
 #test convertIntToRoman
 	ck_assert_str_eq( intToRoman(1), "I");
+	ck_assert_str_eq( intToRoman(2), "II");
 
 
