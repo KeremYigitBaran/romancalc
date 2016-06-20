@@ -1,5 +1,8 @@
 Roman Numeral Calculator
 
+[![Build Status](https://travis-ci.org/butchhoward/romancalc.svg?branch=master)](https://travis-ci.org/butchhoward/romancalc)
+
+
 For this kata, you will be creating a library which will allow the addition and subtraction of 
 Roman numerals.  You may limit the amount of development time you spend on this kata to 4 
 hours. Once your solution ready, please provide an archive (zip, tar, etc.) of your solution 
