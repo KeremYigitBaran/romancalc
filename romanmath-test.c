@@ -67,9 +67,9 @@ START_TEST(subtractRomanNumerals)
 {
 #line 52
 	char* ptr = 0;
-	ck_assert_str_eq( ptr = romanSubtract("II", "I"), "I");
+	ck_assert_str_eq( (ptr = romanSubtract("II", "I")), "I");
 	free(ptr);
-	ck_assert_str_eq( ptr = romanSubtract("LXXIV", "LX"), "XIV");
+	ck_assert_str_eq( (ptr = romanSubtract("LXXIV", "LX")), "XIV");
 	free(ptr);
 
 	//ck_assert_ptr_eq( romanSubtract("I", "I"), 0);
@@ -80,51 +80,51 @@ START_TEST(convertIntToRoman)
 {
 #line 57
 	char* ptr = 0;
-	ck_assert_str_eq( ptr = intToRoman(1), "I");
+	ck_assert_str_eq( ((ptr = intToRoman(1))), "I");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(2), "II");
+	ck_assert_str_eq( ((ptr = intToRoman(2))), "II");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(3), "III");
+	ck_assert_str_eq( ((ptr = intToRoman(3))), "III");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(4), "IV");
+	ck_assert_str_eq( (ptr = intToRoman(4)), "IV");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(5), "V");
+	ck_assert_str_eq( (ptr = intToRoman(5)), "V");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(6), "VI");
+	ck_assert_str_eq( (ptr = intToRoman(6)), "VI");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(7), "VII");
+	ck_assert_str_eq( (ptr = intToRoman(7)), "VII");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(8), "VIII");
+	ck_assert_str_eq( (ptr = intToRoman(8)), "VIII");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(9), "IX");
+	ck_assert_str_eq( (ptr = intToRoman(9)), "IX");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(10), "X");
+	ck_assert_str_eq( (ptr = intToRoman(10)), "X");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(11), "XI");
+	ck_assert_str_eq( (ptr = intToRoman(11)), "XI");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(21), "XXI");
+	ck_assert_str_eq( (ptr = intToRoman(21)), "XXI");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(31), "XXXI");
+	ck_assert_str_eq( (ptr = intToRoman(31)), "XXXI");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(41), "XLI");
+	ck_assert_str_eq( (ptr = intToRoman(41)), "XLI");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(49), "XLIX");
+	ck_assert_str_eq( (ptr = intToRoman(49)), "XLIX");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(50), "L");
+	ck_assert_str_eq( (ptr = intToRoman(50)), "L");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(90), "XC");
+	ck_assert_str_eq( (ptr = intToRoman(90)), "XC");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(100), "C");
+	ck_assert_str_eq( (ptr = intToRoman(100)), "C");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(400), "CD");
+	ck_assert_str_eq( (ptr = intToRoman(400)), "CD");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(500), "D");
+	ck_assert_str_eq( (ptr = intToRoman(500)), "D");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(900), "CM");
+	ck_assert_str_eq( (ptr = intToRoman(900)), "CM");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(1000), "M");
+	ck_assert_str_eq( (ptr = intToRoman(1000)), "M");
 	free(ptr);
-	ck_assert_str_eq( ptr = intToRoman(2516), "MMDXVI");
+	ck_assert_str_eq( (ptr = intToRoman(2516)), "MMDXVI");
 	free(ptr);
 }
 END_TEST
