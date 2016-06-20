@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+char *strdup(const char *s);
+
 const int INVALID_ROMAN_NUMERAL = 0;
 
 int romanSymbolToInt( const char RomanSymbol )
