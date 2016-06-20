@@ -4,5 +4,10 @@ os: linux
 
 compiler: gcc
 
+addons:
+  apt:
+    packages:
+    - check
+
 script:
  - make && make test
