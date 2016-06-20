@@ -58,5 +58,16 @@
 	ck_assert_str_eq( intToRoman(31), "XXXI");
 	ck_assert_str_eq( intToRoman(41), "XLI");
 	ck_assert_str_eq( intToRoman(49), "XLIX");
+	ck_assert_str_eq( intToRoman(50), "L");
+	ck_assert_str_eq( intToRoman(90), "XC");
+	ck_assert_str_eq( intToRoman(100), "C");
+	ck_assert_str_eq( intToRoman(400), "CD");
+	ck_assert_str_eq( intToRoman(500), "D");
+	ck_assert_str_eq( intToRoman(900), "CM");
+	ck_assert_str_eq( intToRoman(1000), "M");
+	ck_assert_str_eq( intToRoman(2516), "MMDXVI");
+
+#test checkInvalidValues
+	ck_assert_ptr_eq( intToRoman(6000), 0);
 
 
