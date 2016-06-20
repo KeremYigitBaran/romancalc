@@ -3,5 +3,6 @@
 
 int romanToInt(const char* Roman);
 int romanSumInt(const char* AddendA, const char* AddendB);
+char* intToRoman(int Value);
 
 #endif

@@ -36,4 +36,7 @@
 	ck_assert_int_eq( romanSumInt("I", "I"), 2);
 	ck_assert_int_eq( romanSumInt("XIV", "LX"), 74);
 
+#test convertIntToRoman
+	ck_assert_str_eq( intToRoman(1), "I");
+
 
