@@ -153,16 +153,18 @@ int romanSumInt(const char* AddendA, const char* AddendB)
 	return addendA + addendB;
 }
 
+
+
+
 char* intToRoman(int Value)
 {
 	char romanNumeral[64];
 	memset(romanNumeral, 0, 64);
 
-	if (Value >= 40)
+
+	for (;Value >= 40; Value -= 40)
 	{
 		strcat(romanNumeral, "XL");
-		Value -= 40;
-
 	}
 
 	for(;Value >= 10; Value -= 10)
@@ -170,10 +172,9 @@ char* intToRoman(int Value)
 		strcat(romanNumeral, "X");
 	}
 
-	if (Value >= 9)
+	for (;Value >= 9; Value -= 9)
 	{
 		strcat(romanNumeral, "IX");
-		Value -= 9;
 	}
 
 	for(;Value >= 5; Value -= 5)
@@ -181,10 +182,9 @@ char* intToRoman(int Value)
 		strcat(romanNumeral, "V");
 	}
 
-	if (Value >= 4)
+	for (;Value >= 4; Value -= 4)
 	{
 		strcat(romanNumeral, "IV");
-		Value -= 4;
 	}
 
 	for(;Value >= 1; Value -= 1)
