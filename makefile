@@ -26,8 +26,9 @@ romancalc-test: romanmath-test.o romanmath.o
 	gcc -o romancalc-test romanmath.o romanmath-test.o $(LIBS)
 
 romanmath-test.o: romanmath.o romanmath.check
-	checkmk romanmath.check > romanmath-test.c
+	# checkmk romanmath.check > romanmath-test.c
 	gcc $(CFLAGS) -c romanmath-test.c
 
 clean:
-	-rm romancalc romanmath.o main.o romancalc-test romanmath-test.o romanmath-test.c
+	-rm romancalc romanmath.o main.o romancalc-test romanmath-test.o 
+	#romanmath-test.c
