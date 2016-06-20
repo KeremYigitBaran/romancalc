@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-
 const int INVALID_ROMAN_NUMERAL = 0;
 
 int romanSymbolToInt( const char RomanSymbol )
@@ -90,13 +89,13 @@ bool isAllowedSubtractiveForValue(possibleSubtractve, symbolValue)
 
 	return isAllowed;
 }
+
 int romanToInt( const char* Roman)
 {
 	int value = INVALID_ROMAN_NUMERAL;
 	int previousSymbolValue = 0;
 	int largestSymbolValue = 0;
 	int repeatCount = 0;
-
 	
 	for (int index = strlen(Roman)-1; index >=0; --index)
 	{

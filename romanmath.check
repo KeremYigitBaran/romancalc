@@ -36,6 +36,7 @@
 	ck_assert_int_eq( romanToInt("VL"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt("VD"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt("VM"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt(""), INVALID_ROMAN_NUMERAL);
 
 
 #test sumRomanNumeralsInt
