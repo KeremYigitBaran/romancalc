@@ -46,6 +46,12 @@
 	ck_assert_str_eq( romanSum("I", "I"), "II");
 	ck_assert_str_eq( romanSum("XIV", "LX"), "LXXIV");
 
+
+#test subtractRomanNumerals
+	ck_assert_str_eq( romanSubtract("II", "I"), "I");
+	ck_assert_str_eq( romanSubtract("LXXIV", "LX"), "XIV");
+	ck_assert_ptr_eq( romanSubtract("I", "I"), 0);
+
 #test convertIntToRoman
 	ck_assert_str_eq( intToRoman(1), "I");
 	ck_assert_str_eq( intToRoman(2), "II");

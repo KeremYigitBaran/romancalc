@@ -142,26 +142,49 @@ int romanToInt( const char* Roman)
 	return value;
 }
 
-int romanSumInt(const char* AddendA, const char* AddendB)
+int romanSumInt(const char* Augend, const char* Addend)
 {
-	int addendA = romanToInt(AddendA);
-	int addendB = romanToInt(AddendB);
-	if (addendA == INVALID_ROMAN_NUMERAL || addendB == INVALID_ROMAN_NUMERAL)
+	int augend = romanToInt(Augend);
+	int addend = romanToInt(Addend);
+	if (INVALID_ROMAN_NUMERAL == augend || INVALID_ROMAN_NUMERAL == addend)
 	{
 		return INVALID_ROMAN_NUMERAL;
 	}
-	return addendA + addendB;
+	return augend + addend;
 }
 
-char* romanSum(const char* AddendA, const char* AddendB)
+char* romanSum(const char* Augend, const char* Addend)
 {
-	int sum = romanSumInt(AddendA, AddendB);
+	int sum = romanSumInt(Augend, Addend);
 	if (INVALID_ROMAN_NUMERAL == sum)
 	{
 		return 0;
 	}
 
 	return intToRoman(sum);
+}
+
+int romanSubtractInt(const char* Menuend, const char* Subtrahend)
+{
+	int menuend = romanToInt(Menuend);
+	int subtrahend = romanToInt(Subtrahend);
+	if (INVALID_ROMAN_NUMERAL == menuend || INVALID_ROMAN_NUMERAL == subtrahend || subtrahend > menuend)
+	{
+		return INVALID_ROMAN_NUMERAL;
+	}
+
+	return menuend - subtrahend;
+}
+
+char* romanSubtract(const char* Menuend, const char* Subtrahend)
+{
+	int difference = romanSubtractInt(Menuend, Subtrahend);
+	if (INVALID_ROMAN_NUMERAL == difference)
+	{
+		return 0;
+	}
+
+	return intToRoman(difference);
 }
 
 char* intToRoman(int Value)
