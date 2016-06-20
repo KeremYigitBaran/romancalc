@@ -1,9 +1,11 @@
 #include "romanmath.h"
 #include <string.h>
 
+const int INVALID_ROMAN_NUMERAL = 0;
+
 int romanSymbolToInt( const char RomanSymbol )
 {
-	int value = 0;
+	int value = INVALID_ROMAN_NUMERAL;
 
 	switch (RomanSymbol)
 	{
@@ -29,7 +31,7 @@ int romanSymbolToInt( const char RomanSymbol )
 		value = 1000;
 		break;
 	default:
-		value = 0;
+		value = INVALID_ROMAN_NUMERAL;
 		break;
 	};
 
@@ -63,16 +65,16 @@ int romanAllowedSymbolRepeat(int value)
 
 int romanToInt( const char* Roman)
 {
-	int value = 0;
+	int value = INVALID_ROMAN_NUMERAL;
 	int previousSymbolValue = 0;
 	int repeatCount = 0;
-
+	
 	for (int index = strlen(Roman)-1; index >=0; --index)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
-		if (symbolValue == 0)
+		if (symbolValue == INVALID_ROMAN_NUMERAL)
 		{
-			value = 0;
+			value = INVALID_ROMAN_NUMERAL;
 			break;
 		}
 
@@ -81,7 +83,7 @@ int romanToInt( const char* Roman)
 			++repeatCount;
 			if (repeatCount > romanAllowedSymbolRepeat(symbolValue))
 			{
-				value = 0;
+				value = INVALID_ROMAN_NUMERAL;
 				break;
 			}
 		}
@@ -98,6 +100,7 @@ int romanToInt( const char* Roman)
 		{
 			value += symbolValue;
 		}
+		
 		previousSymbolValue = symbolValue;
 	}
 
@@ -108,9 +111,9 @@ int romanSumInt(const char* AddendA, const char* AddendB)
 {
 	int addendA = romanToInt(AddendA);
 	int addendB = romanToInt(AddendB);
-	if (addendA == 0 || addendB == 0)
+	if (addendA == INVALID_ROMAN_NUMERAL || addendB == INVALID_ROMAN_NUMERAL)
 	{
-		return 0;
+		return INVALID_ROMAN_NUMERAL;
 	}
 	return addendA + addendB;
 }
