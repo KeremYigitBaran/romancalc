@@ -153,8 +153,16 @@ int romanSumInt(const char* AddendA, const char* AddendB)
 	return addendA + addendB;
 }
 
+char* romanSum(const char* AddendA, const char* AddendB)
+{
+	int sum = romanSumInt(AddendA, AddendB);
+	if (INVALID_ROMAN_NUMERAL == sum)
+	{
+		return 0;
+	}
 
-
+	return intToRoman(sum);
+}
 
 char* intToRoman(int Value)
 {
@@ -162,7 +170,7 @@ char* intToRoman(int Value)
 	{
 		return 0;
 	}
-	
+
 	char romanNumeral[64];
 	memset(romanNumeral, 0, 64);
 

@@ -38,9 +38,13 @@
 	ck_assert_int_eq( romanToInt("VM"), INVALID_ROMAN_NUMERAL);
 
 
-#test sumRomanNumerals
+#test sumRomanNumeralsInt
 	ck_assert_int_eq( romanSumInt("I", "I"), 2);
 	ck_assert_int_eq( romanSumInt("XIV", "LX"), 74);
+
+#test sumRomanNumerals
+	ck_assert_str_eq( romanSum("I", "I"), "II");
+	ck_assert_str_eq( romanSum("XIV", "LX"), "LXXIV");
 
 #test convertIntToRoman
 	ck_assert_str_eq( intToRoman(1), "I");
