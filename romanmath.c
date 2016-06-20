@@ -10,8 +10,13 @@ int romanToInt( const char* Roman)
 	else if (strcmp(Roman, "II") == 0)
 	{
 		return 2;
-	}else
+	}
+	else if (strcmp(Roman, "III") == 0)
 	{
 		return 3;
+	}
+	else
+	{
+		return 4;
 	}
 }

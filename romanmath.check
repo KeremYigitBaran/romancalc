@@ -7,5 +7,5 @@
 	ck_assert_int_eq( romanToInt("I"), 1);
 	ck_assert_int_eq( romanToInt("II"), 2);
 	ck_assert_int_eq( romanToInt("III"), 3);
-
+	ck_assert_int_eq( romanToInt("IV"), 4);
 
