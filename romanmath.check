@@ -5,4 +5,5 @@
 
 #test convertSingleDigits
 	ck_assert_int_eq( romanToInt("I"), 1);
+	ck_assert_int_eq( romanToInt("II"), 2);
 

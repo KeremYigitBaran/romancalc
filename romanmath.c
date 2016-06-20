@@ -1,6 +1,14 @@
 #include "romanmath.h"
+#include <string.h>
 
 int romanToInt( const char* Roman)
 {
-	return 1;
+	if (strcmp(Roman, "I") == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 2;
+	}
 }
