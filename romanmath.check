@@ -20,5 +20,16 @@
 	ck_assert_int_eq( romanToInt("M"), 1000);
 	ck_assert_int_eq( romanToInt("MMDXVI"), 2516);
 
+#test convertRomanInvalids
+	ck_assert_int_eq( romanToInt("IIII"), 0);
+	ck_assert_int_eq( romanToInt("VVV"), 0);
+	ck_assert_int_eq( romanToInt("XXXX"), 0);
+	ck_assert_int_eq( romanToInt("LLL"), 0);
+	ck_assert_int_eq( romanToInt("CCCC"), 0);
+	ck_assert_int_eq( romanToInt("DDD"), 0);
+	ck_assert_int_eq( romanToInt("MMMMM"), 0);
+	ck_assert_int_eq( romanToInt(""), 0);
+	ck_assert_int_eq( romanToInt("W"), 0);
+	ck_assert_int_eq( romanToInt("WII"), 0);
 
 
