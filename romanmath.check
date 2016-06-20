@@ -32,4 +32,7 @@
 	ck_assert_int_eq( romanToInt("W"), 0);
 	ck_assert_int_eq( romanToInt("WII"), 0);
 
+#test sumRomanNumerals
+	ck_assert_int_eq( romanSumInt("I", "I"), 2);
+
 

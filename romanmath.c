@@ -75,7 +75,7 @@ int romanToInt( const char* Roman)
 			value = 0;
 			break;
 		}
-		
+
 		if (symbolValue == previousSymbolValue)
 		{
 			++repeatCount;
@@ -102,4 +102,15 @@ int romanToInt( const char* Roman)
 	}
 
 	return value;
+}
+
+int romanSumInt(const char* AddendA, const char* AddendB)
+{
+	int addendA = romanToInt(AddendA);
+	int addendB = romanToInt(AddendB);
+	if (addendA == 0 || addendB == 0)
+	{
+		return 0;
+	}
+	return addendA + addendB;
 }
