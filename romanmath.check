@@ -3,9 +3,10 @@
 #test aTest
 	ck_assert_int_eq( 1, 1 );
 
-#test convertSingleDigits
+#test convertRoman
 	ck_assert_int_eq( romanToInt("I"), 1);
 	ck_assert_int_eq( romanToInt("II"), 2);
 	ck_assert_int_eq( romanToInt("III"), 3);
 	ck_assert_int_eq( romanToInt("IV"), 4);
+	ck_assert_int_eq( romanToInt("V"), 5);
 
