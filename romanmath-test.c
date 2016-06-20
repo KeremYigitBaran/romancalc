@@ -5,7 +5,6 @@
 
 START_TEST(convertRoman)
 {
-#line 7
 	ck_assert_int_eq( romanToInt("I"), 1);
 	ck_assert_int_eq( romanToInt("II"), 2);
 	ck_assert_int_eq( romanToInt("III"), 3);
@@ -27,7 +26,6 @@ END_TEST
 
 START_TEST(convertRomanInvalids)
 {
-#line 24
 	ck_assert_int_eq( romanToInt("IIII"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt("VVV"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt("VV"), INVALID_ROMAN_NUMERAL);
@@ -49,7 +47,6 @@ END_TEST
 
 START_TEST(sumRomanNumeralsInt)
 {
-#line 43
 	ck_assert_int_eq( romanSumInt("I", "I"), 2);
 	ck_assert_int_eq( romanSumInt("XIV", "LX"), 74);
 }
@@ -57,7 +54,6 @@ END_TEST
 
 START_TEST(sumRomanNumerals)
 {
-#line 47
 	ck_assert_str_eq( romanSum("I", "I"), "II");
 	ck_assert_str_eq( romanSum("XIV", "LX"), "LXXIV");
 }
@@ -65,8 +61,10 @@ END_TEST
 
 START_TEST(subtractRomanNumerals)
 {
-#line 52
 	char* ptr = 0;
+	ptr = romanSubtract("II", "I");
+	ck_assert_str_eq(ptr, "I");
+	free(ptr);
 	ck_assert_str_eq( (ptr = romanSubtract("II", "I")), "I");
 	free(ptr);
 	ck_assert_str_eq( (ptr = romanSubtract("LXXIV", "LX")), "XIV");
@@ -78,13 +76,12 @@ END_TEST
 
 START_TEST(convertIntToRoman)
 {
-#line 57
 	char* ptr = 0;
-	ck_assert_str_eq( ((ptr = intToRoman(1))), "I");
+	ck_assert_str_eq( (ptr = intToRoman(1)), "I");
 	free(ptr);
-	ck_assert_str_eq( ((ptr = intToRoman(2))), "II");
+	ck_assert_str_eq( (ptr = intToRoman(2)), "II");
 	free(ptr);
-	ck_assert_str_eq( ((ptr = intToRoman(3))), "III");
+	ck_assert_str_eq( (ptr = intToRoman(3)), "III");
 	free(ptr);
 	ck_assert_str_eq( (ptr = intToRoman(4)), "IV");
 	free(ptr);
@@ -131,7 +128,6 @@ END_TEST
 
 START_TEST(checkInvalidValues)
 {
-#line 82
 	//ck_assert_ptr_eq( intToRoman(6000), 0);
 }
 END_TEST
