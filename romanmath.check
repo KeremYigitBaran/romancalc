@@ -14,4 +14,8 @@
 	ck_assert_int_eq( romanToInt("VIII"), 8);
 	ck_assert_int_eq( romanToInt("IX"), 9);
 	ck_assert_int_eq( romanToInt("X"), 10);
+	ck_assert_int_eq( romanToInt("L"), 50);
+	ck_assert_int_eq( romanToInt("C"), 100);
+	ck_assert_int_eq( romanToInt("D"), 500);
+	ck_assert_int_eq( romanToInt("M"), 1000);
 
