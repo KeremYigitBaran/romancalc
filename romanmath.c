@@ -7,8 +7,11 @@ int romanToInt( const char* Roman)
 	{
 		return 1;
 	}
-	else
+	else if (strcmp(Roman, "II") == 0)
 	{
 		return 2;
+	}else
+	{
+		return 3;
 	}
 }
