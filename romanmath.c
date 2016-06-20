@@ -161,37 +161,18 @@ char* intToRoman(int Value)
 	char romanNumeral[64];
 	memset(romanNumeral, 0, 64);
 
+	int symbolValues[] =             {40,   10,   9,    5,   4,    1};
+	const char* symbolsForValues[] = {"XL", "X", "IX", "V", "IV", "I"};
+	int symbolValueCount = sizeof(symbolValues) / sizeof(symbolValues[0]);
 
-	for (;Value >= 40; Value -= 40)
+	for (int i = 0; i < symbolValueCount; ++i)
 	{
-		strcat(romanNumeral, "XL");
-	}
-
-	for(;Value >= 10; Value -= 10)
-	{
-		strcat(romanNumeral, "X");
-	}
-
-	for (;Value >= 9; Value -= 9)
-	{
-		strcat(romanNumeral, "IX");
-	}
-
-	for(;Value >= 5; Value -= 5)
-	{
-		strcat(romanNumeral, "V");
-	}
-
-	for (;Value >= 4; Value -= 4)
-	{
-		strcat(romanNumeral, "IV");
-	}
-
-	for(;Value >= 1; Value -= 1)
-	{
-		strcat(romanNumeral, "I");
+		for (;Value >= symbolValues[i]; Value -= symbolValues[i])
+		{
+			strcat(romanNumeral, symbolsForValues[i]);
+		}
 	}
 
 	return strdup(romanNumeral);
-
 }
+
