@@ -21,16 +21,22 @@
 	ck_assert_int_eq( romanToInt("MMDXVI"), 2516);
 
 #test convertRomanInvalids
-	ck_assert_int_eq( romanToInt("IIII"), 0);
-	ck_assert_int_eq( romanToInt("VVV"), 0);
-	ck_assert_int_eq( romanToInt("XXXX"), 0);
-	ck_assert_int_eq( romanToInt("LLL"), 0);
-	ck_assert_int_eq( romanToInt("CCCC"), 0);
-	ck_assert_int_eq( romanToInt("DDD"), 0);
-	ck_assert_int_eq( romanToInt("MMMMM"), 0);
-	ck_assert_int_eq( romanToInt(""), 0);
-	ck_assert_int_eq( romanToInt("W"), 0);
-	ck_assert_int_eq( romanToInt("WII"), 0);
+	ck_assert_int_eq( romanToInt("IIII"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VVV"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VV"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("XXXX"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("LL"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("CCCC"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("DD"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("MMMMM"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt(""), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("W"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("WII"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VX"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VL"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VD"), INVALID_ROMAN_NUMERAL);
+	ck_assert_int_eq( romanToInt("VM"), INVALID_ROMAN_NUMERAL);
+
 
 #test sumRomanNumerals
 	ck_assert_int_eq( romanSumInt("I", "I"), 2);

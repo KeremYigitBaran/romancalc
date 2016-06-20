@@ -1,5 +1,7 @@
 #include "romanmath.h"
 #include <string.h>
+#include <stdbool.h>
+
 
 const int INVALID_ROMAN_NUMERAL = 0;
 
@@ -51,7 +53,7 @@ int romanAllowedSymbolRepeat(int value)
 	case 5:
 	case 50:
 	case 500:
-		repeatCountAllowed = 2;
+		repeatCountAllowed = 1;
 		break;
 	case 1000:
 		repeatCountAllowed = 4;
@@ -63,11 +65,38 @@ int romanAllowedSymbolRepeat(int value)
 	return repeatCountAllowed;
 }
 
+bool isAllowedSubtractiveForValue(possibleSubtractve, symbolValue)
+{
+	bool isAllowed = false;
+
+	switch (symbolValue)
+	{
+	case 5:
+	case 10:
+		isAllowed = (possibleSubtractve == 1);
+		break;
+	case 50:
+	case 100:
+		isAllowed = (possibleSubtractve == 10);
+		break;
+	case 500:
+	case 1000:
+		isAllowed = (possibleSubtractve == 100);
+		break;
+	case 1:
+	default:
+		isAllowed = false;
+	}
+
+	return isAllowed;
+}
 int romanToInt( const char* Roman)
 {
 	int value = INVALID_ROMAN_NUMERAL;
 	int previousSymbolValue = 0;
+	int largestSymbolValue = 0;
 	int repeatCount = 0;
+
 	
 	for (int index = strlen(Roman)-1; index >=0; --index)
 	{
@@ -92,15 +121,21 @@ int romanToInt( const char* Roman)
 			repeatCount = 1;
 		}
 
-		if (symbolValue < previousSymbolValue)
+		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
 		{
 			value -= symbolValue;
 		}
 		else
 		{
+			if (symbolValue < largestSymbolValue)
+			{
+				value = INVALID_ROMAN_NUMERAL;
+				break;
+			}
+			largestSymbolValue = symbolValue;
 			value += symbolValue;
 		}
-		
+
 		previousSymbolValue = symbolValue;
 	}
 
