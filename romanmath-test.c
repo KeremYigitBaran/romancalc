@@ -1,6 +1,7 @@
 #include <check.h>
 #include "romanmath.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 
 START_TEST(convertRoman)
