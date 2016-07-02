@@ -25,7 +25,7 @@ test: romancalc-test
 	@echo "--------------"
 
 check: romancalc-test
-	 CK_VERBOSITY="verbose" valgrind --leak-check=full --show-leak-kinds=all -v ./romancalc-test
+	CK_FORK=no  CK_VERBOSITY="verbose" valgrind --leak-check=full --show-leak-kinds=all -v ./romancalc-test
 	-@echo "------------"
 
 romancalc-test: romanmath-test.o romanmath.o
