@@ -1,4 +1,4 @@
-CFLAGS=-Wall -std=c99 $(shell pkg-config --cflags check)
+CFLAGS=-Wall -std=c99 -O0 -g $(shell pkg-config --cflags check)
 CHECK_LIBS=$(shell pkg-config --libs check)
 
 .PHONEY : all
@@ -6,6 +6,8 @@ CHECK_LIBS=$(shell pkg-config --libs check)
 .PHONEY : test
 
 .PHONEY : clean
+
+.PHONEY : check
 
 all: romancalc
 
@@ -21,6 +23,10 @@ romanmath.o: romanmath.c romanmath.h
 test: romancalc-test
 	CK_VERBOSITY="verbose" ./romancalc-test
 	@echo "--------------"
+
+check: romancalc-test
+	 CK_VERBOSITY="verbose" valgrind --leak-check=full --show-leak-kinds=all -v ./romancalc-test
+	-@echo "------------"
 
 romancalc-test: romanmath-test.o romanmath.o
 	gcc -o romancalc-test romanmath-test.o romanmath.o $(CHECK_LIBS)
