@@ -171,39 +171,24 @@ bool isValidRomanNumber(const char* Roman)
 		previousSymbolValue = symbolValue;
 	}
 
+	printf("%s\n", (isValid?"true":"false"));
 	return isValid;
 }
 
 int romanToInt( const char* Roman)
 {
+	if (!isValidRomanNumber(Roman))
+	{
+		return INVALID_ROMAN_NUMERAL;
+	}
+
 	int value = INVALID_ROMAN_NUMERAL;
 	int previousSymbolValue = 0;
-	int largestSymbolValue = 0;
-	int repeatCount = 0;
 	
 	int index = 0;
 	for (index = strlen(Roman)-1; index >=0; --index)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
-		if (symbolValue == INVALID_ROMAN_NUMERAL)
-		{
-			value = INVALID_ROMAN_NUMERAL;
-			break;
-		}
-
-		if (symbolValue == previousSymbolValue)
-		{
-			++repeatCount;
-			if (repeatCount > romanAllowedSymbolRepeat(symbolValue))
-			{
-				value = INVALID_ROMAN_NUMERAL;
-				break;
-			}
-		}
-		else
-		{
-			repeatCount = 1;
-		}
 
 		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
 		{
@@ -211,12 +196,6 @@ int romanToInt( const char* Roman)
 		}
 		else
 		{
-			if (symbolValue < largestSymbolValue)
-			{
-				value = INVALID_ROMAN_NUMERAL;
-				break;
-			}
-			largestSymbolValue = symbolValue;
 			value += symbolValue;
 		}
 
