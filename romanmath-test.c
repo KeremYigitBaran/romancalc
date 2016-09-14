@@ -36,6 +36,8 @@ struct ValidateRomanNumbersData
 	,{.number="A", .valid=false}
 	,{.number="XIX", .valid=true}
 	,{.number="VIV", .valid=false}
+	,{.number="MMMM", .valid=false}
+	,{.number="MMMMI", .valid=false}
 	
 };
 
@@ -45,6 +47,15 @@ START_TEST(validateRomanNumbers)
 	bool isValid = ValidateRomanNumbersData[_i].valid;
 	ck_assert_msg(isValidRomanNumber(number) == isValid, 
                 "FAILED: isValidRomanNumber(\"%s\")==%s ", number, (isValid?"true":"false"));
+}
+END_TEST
+
+START_TEST(validateAllRomanNumbers)
+{
+	char* number = intToRoman(_i);
+	ck_assert_msg(isValidRomanNumber(number), 
+                "FAILED: isValidRomanNumber(\"%s\")", number);
+	free(number);
 }
 END_TEST
 
@@ -177,8 +188,9 @@ int main(void)
     tcase_add_test(tc1_1, checkInvalidValues);
 
 	tcase_add_loop_test(tc1_1, validateRomanNumbers, 0, sizeof ValidateRomanNumbersData / sizeof ValidateRomanNumbersData[0]);
+	tcase_add_loop_test(tc1_1, validateAllRomanNumbers, 0, 4000);
 
-    srunner_run_all(sr, CK_VERBOSE);
+    srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);
     srunner_free(sr);
 

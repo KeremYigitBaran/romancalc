@@ -57,7 +57,7 @@ int romanAllowedSymbolRepeat(int value)
 		repeatCountAllowed = 1;
 		break;
 	case 1000:
-		repeatCountAllowed = 4;
+		repeatCountAllowed = 3;
 		break;
 	default: 
 		repeatCountAllowed = 0;
@@ -109,8 +109,10 @@ bool doesSubtractivePreventMoreBase(int baseValue)
 
 bool isValidRomanNumber(const char* Roman)
 {
-
-	printf("====\nisvalidRomanNumber(\"%s\")\n", Roman);
+	if (!Roman)
+	{
+		return false;
+	}
 
 	bool isValid = true;
 
@@ -119,18 +121,10 @@ bool isValidRomanNumber(const char* Roman)
 	int repeatCount = 0;
 	
 	int index = 0;
-	for (index = strlen(Roman)-1; index >=0; --index)
+	int RomanLength = strlen(Roman);
+	for (index = RomanLength-1; index >= 0; --index)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
-
-		printf("%c %d I=%d P=%d L=%d R=%d\n", 
-			Roman[index], 
-			symbolValue,
-			index, 
-			previousSymbolValue, 
-			largestSymbolValue,
-			repeatCount);
-
 		if (symbolValue == INVALID_ROMAN_NUMERAL)
 		{
 			isValid = false;
@@ -171,7 +165,6 @@ bool isValidRomanNumber(const char* Roman)
 		previousSymbolValue = symbolValue;
 	}
 
-	printf("%s\n", (isValid?"true":"false"));
 	return isValid;
 }
 

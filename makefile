@@ -21,11 +21,11 @@ romanmath.o: romanmath.c romanmath.h
 	gcc $(CFLAGS) -c romanmath.c
 
 test: romancalc-test
-	CK_VERBOSITY="verbose" ./romancalc-test
+	CK_VERBOSITY="normal" ./romancalc-test
 	@echo "--------------"
 
 check: romancalc-test
-	CK_FORK=no  CK_VERBOSITY="verbose" valgrind --leak-check=full --show-leak-kinds=all -v ./romancalc-test
+	CK_FORK=no  CK_VERBOSITY="normal" valgrind --leak-check=full --show-leak-kinds=all -v ./romancalc-test
 	-@echo "------------"
 
 romancalc-test: romanmath-test.o romanmath.o
