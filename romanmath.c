@@ -95,7 +95,7 @@ bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
 bool isValidRomanNumber(const char* Roman)
 {
 
-	return false;
+	return true;
 }
 
 int romanToInt( const char* Roman)
