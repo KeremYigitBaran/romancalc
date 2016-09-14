@@ -92,8 +92,25 @@ bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
 	return isAllowed;
 }
 
+bool doesSubtractivePreventMoreBase(int baseValue)
+{
+	bool isPrevented = true;
+
+	switch (baseValue)
+	{
+	case 10:
+	case 100:
+	case 1000:
+		isPrevented = false;
+	}
+
+	return isPrevented;
+}
+
 bool isValidRomanNumber(const char* Roman)
 {
+
+	printf("====\nisvalidRomanNumber(\"%s\")\n", Roman);
 
 	bool isValid = true;
 
@@ -105,6 +122,15 @@ bool isValidRomanNumber(const char* Roman)
 	for (index = strlen(Roman)-1; index >=0; --index)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
+
+		printf("%c %d I=%d P=%d L=%d R=%d\n", 
+			Roman[index], 
+			symbolValue,
+			index, 
+			previousSymbolValue, 
+			largestSymbolValue,
+			repeatCount);
+
 		if (symbolValue == INVALID_ROMAN_NUMERAL)
 		{
 			isValid = false;
@@ -127,7 +153,10 @@ bool isValidRomanNumber(const char* Roman)
 
 		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
 		{
-			//value -= symbolValue;
+			if( doesSubtractivePreventMoreBase(previousSymbolValue))
+			{
+				largestSymbolValue = previousSymbolValue + 1;	
+			}
 		}
 		else
 		{

@@ -34,6 +34,7 @@ struct ValidateRomanNumbersData
 	 {.number="I", .valid=true}
 	,{.number="II", .valid=true}
 	,{.number="A", .valid=false}
+	,{.number="XIX", .valid=true}
 	,{.number="VIV", .valid=false}
 	
 };
