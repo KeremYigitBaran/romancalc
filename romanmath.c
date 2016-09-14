@@ -49,15 +49,13 @@ int romanAllowedSymbolRepeat(int value)
 	case 1:
 	case 10:
 	case 100:
+	case 1000:
 		repeatCountAllowed = 3;
 		break;
 	case 5:
 	case 50:
 	case 500:
 		repeatCountAllowed = 1;
-		break;
-	case 1000:
-		repeatCountAllowed = 3;
 		break;
 	default: 
 		repeatCountAllowed = 0;
@@ -66,33 +64,33 @@ int romanAllowedSymbolRepeat(int value)
 	return repeatCountAllowed;
 }
 
-bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
+bool isCurrentSymbolASubtractiveForThePreviousSymbol(int possibleSubtractve, int symbolValue)
 {
-	bool isAllowed = false;
+	bool isASubtractiveValue = false;
 
 	switch (symbolValue)
 	{
 	case 5:
 	case 10:
-		isAllowed = (possibleSubtractve == 1);
+		isASubtractiveValue = (possibleSubtractve == 1);
 		break;
 	case 50:
 	case 100:
-		isAllowed = (possibleSubtractve == 10);
+		isASubtractiveValue = (possibleSubtractve == 10);
 		break;
 	case 500:
 	case 1000:
-		isAllowed = (possibleSubtractve == 100);
+		isASubtractiveValue = (possibleSubtractve == 100);
 		break;
 	case 1:
 	default:
-		isAllowed = false;
+		isASubtractiveValue = false;
 	}
 
-	return isAllowed;
+	return isASubtractiveValue;
 }
 
-bool doesSubtractivePreventMoreBase(int baseValue)
+static bool subtractivePreventsMoreUseOfBaseValue(int baseValue)
 {
 	bool isPrevented = true;
 
@@ -102,9 +100,31 @@ bool doesSubtractivePreventMoreBase(int baseValue)
 	case 100:
 	case 1000:
 		isPrevented = false;
+		break;
+	case 1:
+	case 5:
+	case 50:
+	case 500:
+	default:
+		isPrevented = true;
 	}
 
 	return isPrevented;
+}
+
+
+static int updateRepeatCount(int repeatCount, int symbolValue, int previousSymbolValue)
+{
+	if (symbolValue == previousSymbolValue)
+	{
+		++repeatCount;
+	}
+	else
+	{
+		repeatCount = 1;
+	}
+
+	return repeatCount;
 }
 
 bool isValidRomanNumber(const char* Roman)
@@ -131,23 +151,17 @@ bool isValidRomanNumber(const char* Roman)
 			break;
 		}
 
-		if (symbolValue == previousSymbolValue)
+		repeatCount = updateRepeatCount(repeatCount, symbolValue, previousSymbolValue);
+		if (repeatCount > romanAllowedSymbolRepeat(symbolValue))
 		{
-			++repeatCount;
-			if (repeatCount > romanAllowedSymbolRepeat(symbolValue))
-			{
-				isValid = false;
-				break;
-			}
+			isValid = false;
+			break;
 		}
-		else
+	
+		
+		if (isCurrentSymbolASubtractiveForThePreviousSymbol(symbolValue, previousSymbolValue))
 		{
-			repeatCount = 1;
-		}
-
-		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
-		{
-			if( doesSubtractivePreventMoreBase(previousSymbolValue))
+			if( subtractivePreventsMoreUseOfBaseValue(previousSymbolValue))
 			{
 				largestSymbolValue = previousSymbolValue + 1;	
 			}
@@ -183,7 +197,7 @@ int romanToInt( const char* Roman)
 	{
 		int symbolValue = romanSymbolToInt(Roman[index]);
 
-		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
+		if (isCurrentSymbolASubtractiveForThePreviousSymbol(symbolValue, previousSymbolValue))
 		{
 			value -= symbolValue;
 		}
@@ -245,7 +259,7 @@ char* romanSubtract(const char* Menuend, const char* Subtrahend)
 
 char* intToRoman(int Value)
 {
-	if (Value >= 5000)
+	if (Value >= 4000)
 	{
 		return 0;
 	}

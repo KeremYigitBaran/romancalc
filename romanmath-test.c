@@ -38,6 +38,7 @@ struct ValidateRomanNumbersData
 	,{.number="VIV", .valid=false}
 	,{.number="MMMM", .valid=false}
 	,{.number="MMMMI", .valid=false}
+	,{.number="CCD", .valid=false}
 	
 };
 
