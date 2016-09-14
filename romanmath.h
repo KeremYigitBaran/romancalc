@@ -1,7 +1,11 @@
 #ifndef ROMAN_MATH_H
 #define ROMAN_MATH_H
 
+#include <stdbool.h>
+
 extern const int INVALID_ROMAN_NUMERAL;
+
+bool isValidRomanNumber(const char* Roman);
 
 int romanToInt(const char* Roman);
 int romanSumInt(const char* Augend, const char* Addend);

@@ -92,6 +92,12 @@ bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
 	return isAllowed;
 }
 
+bool isValidRomanNumber(const char* Roman)
+{
+
+	return false;
+}
+
 int romanToInt( const char* Roman)
 {
 	int value = INVALID_ROMAN_NUMERAL;

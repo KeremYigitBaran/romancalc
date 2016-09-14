@@ -2,6 +2,7 @@
 #include "romanmath.h"
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 
 START_TEST(convertRoman)
@@ -25,6 +26,23 @@ START_TEST(convertRoman)
 }
 END_TEST
 
+struct ValidateRomanNumbersData
+{
+	const char* number;
+	bool valid;
+} ValidateRomanNumbersData[] = {
+	{.number="I", .valid=true}
+};
+
+START_TEST(validateRomanNumbers)
+{
+	const char* number = ValidateRomanNumbersData[_i].number;
+	bool isValid = ValidateRomanNumbersData[_i].valid;
+	ck_assert_msg(isValidRomanNumber(number) == isValid, 
+                "FAILED: isValidRomanNumber(\"%s\")==%s ", number, (isValid?"true":"false"));
+}
+END_TEST
+
 START_TEST(convertRomanInvalids)
 {
 	ck_assert_int_eq( romanToInt("IIII"), INVALID_ROMAN_NUMERAL);
@@ -43,6 +61,7 @@ START_TEST(convertRomanInvalids)
 	ck_assert_int_eq( romanToInt("VD"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt("VM"), INVALID_ROMAN_NUMERAL);
 	ck_assert_int_eq( romanToInt(""), INVALID_ROMAN_NUMERAL);
+//	ck_assert_int_eq( romanToInt("VIV"), INVALID_ROMAN_NUMERAL);
 }
 END_TEST
 
@@ -152,7 +171,9 @@ int main(void)
     tcase_add_test(tc1_1, convertIntToRoman);
     tcase_add_test(tc1_1, checkInvalidValues);
 
-    srunner_run_all(sr, CK_ENV);
+	tcase_add_loop_test(tc1_1, validateRomanNumbers, 0, sizeof ValidateRomanNumbersData / sizeof ValidateRomanNumbersData[0]);
+
+    srunner_run_all(sr, CK_VERBOSE);
     nf = srunner_ntests_failed(sr);
     srunner_free(sr);
 

@@ -36,3 +36,5 @@ romancalc
 # Debug files
 *.dSYM/
 *.su
+
+.vscode
