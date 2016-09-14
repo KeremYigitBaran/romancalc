@@ -31,7 +31,11 @@ struct ValidateRomanNumbersData
 	const char* number;
 	bool valid;
 } ValidateRomanNumbersData[] = {
-	{.number="I", .valid=true}
+	 {.number="I", .valid=true}
+	,{.number="II", .valid=true}
+	,{.number="A", .valid=false}
+	,{.number="VIV", .valid=false}
+	
 };
 
 START_TEST(validateRomanNumbers)

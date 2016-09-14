@@ -95,7 +95,54 @@ bool isAllowedSubtractiveForValue(int possibleSubtractve, int symbolValue)
 bool isValidRomanNumber(const char* Roman)
 {
 
-	return true;
+	bool isValid = true;
+
+	int previousSymbolValue = 0;
+	int largestSymbolValue = 0;
+	int repeatCount = 0;
+	
+	int index = 0;
+	for (index = strlen(Roman)-1; index >=0; --index)
+	{
+		int symbolValue = romanSymbolToInt(Roman[index]);
+		if (symbolValue == INVALID_ROMAN_NUMERAL)
+		{
+			isValid = false;
+			break;
+		}
+
+		if (symbolValue == previousSymbolValue)
+		{
+			++repeatCount;
+			if (repeatCount > romanAllowedSymbolRepeat(symbolValue))
+			{
+				isValid = false;
+				break;
+			}
+		}
+		else
+		{
+			repeatCount = 1;
+		}
+
+		if (isAllowedSubtractiveForValue(symbolValue, previousSymbolValue))
+		{
+			//value -= symbolValue;
+		}
+		else
+		{
+			if (symbolValue < largestSymbolValue)
+			{
+				isValid = false;
+				break;
+			}
+			largestSymbolValue = symbolValue;
+		}
+
+		previousSymbolValue = symbolValue;
+	}
+
+	return isValid;
 }
 
 int romanToInt( const char* Roman)
